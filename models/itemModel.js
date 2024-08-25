@@ -26,7 +26,12 @@ const itemSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         required: true
+    },
+    rank: {
+        type: Number,
+        default: 0
     }
+
     
 })
 const itemModel = mongoose.models.item || mongoose.model("item", itemSchema)

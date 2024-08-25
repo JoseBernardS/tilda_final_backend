@@ -93,7 +93,7 @@ export const search_item = async (req, res) => {
   
       const records = data.map((item) => ({
         objectID: item._id,
-        item_image: `${process.env.BACKENDBASEURL}/images/${item.image}`  , // Use _id from MongoDB as objectID
+        item_images: `${process.env.BACKENDBASEURL}/images/${item.image}`  , // Use _id from MongoDB as objectID
         ...item.toObject(), // Spread the rest of the document fields
       }));
   

@@ -58,7 +58,7 @@ const verifyOrder = async (req, res) => {
             await orderModel.findByIdAndUpdate(orderId,{payment:true});
             for(let item of (await orderModel.findById(orderId)).items){
                 await itemModel.findByIdAndUpdate(item._id,{$inc:{quantity:-item.quantity}});
-                await itemModel.findByIdAndUpdate(item._id,{$inc:{rank:1}});
+                await itemModel.findByIdAndUpdate(item._id,{$inc:{rank:1*item.quantity}});
             }
             
             res.json({success:true,message:"Paid"})

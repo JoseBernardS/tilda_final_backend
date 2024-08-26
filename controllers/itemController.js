@@ -103,6 +103,7 @@ export const search_item = async (req, res) => {
       );
   
       const index = client.initIndex("tilda_items");
+      await index.clearObjects();
   
       await index.saveObjects(records, { autoGenerateObjectIDIfNotExist: true });
   
